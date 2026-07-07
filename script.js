@@ -26,3 +26,21 @@ verifyForm.addEventListener("submit", function (event) {
     window.location.href = "register.html";
 
 });
+
+    const registeredNRIC =
+    document.getElementById("registeredNRIC");
+    
+    if(registeredNRIC){
+    
+        const savedNRIC =
+        sessionStorage.getItem("nric");
+    
+        if(!savedNRIC){
+    
+            window.location.href="index.html";
+    
+        }
+    
+        registeredNRIC.value=savedNRIC;
+    
+}
