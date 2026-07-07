@@ -121,9 +121,9 @@ body{
 
 .logo{
 
-    width:180px;
+    width:160px;
 
-    margin-bottom:55px;
+    margin-bottom:45px;
 
     animation:fadeLogo 1.8s ease;
 
@@ -135,9 +135,25 @@ body{
 
 /* ---------- TITLE ---------- */
 
+.campaign-title{
+
+    color:white;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:.95rem;
+
+    margin-bottom:20px;
+
+}
+
 h1{
 
-    font-size:clamp(2.5rem,6vw,5.6rem);
+    font-size:clamp(2.2rem,5vw,4.5rem);
 
     font-weight:700;
 
@@ -155,13 +171,15 @@ h1{
 
     color:#cfcfcf;
 
-    font-size:1.08rem;
+    font-size:1rem;
 
-    max-width:600px;
+    max-width:520px;
 
-    line-height:1.8;
+    line-height:1.9;
 
     margin:auto;
+
+    margin-bottom:55px;
 
 }
 
@@ -194,6 +212,12 @@ h1{
     margin-left:auto;
 
     margin-right:auto;
+    
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+
+    text-align:left;
 
 }
 
@@ -287,7 +311,9 @@ small{
 
 button{
 
-    width:100%;
+    width:220px;
+
+    align-self:center;
 
     padding:18px;
 
@@ -514,6 +540,7 @@ button:hover{
         width:145px;
 
     }
+    
 
     h1{
 
