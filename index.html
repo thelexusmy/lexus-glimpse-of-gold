@@ -1,69 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexus | Glimpse of Gold</title>
 
-    <link rel="stylesheet" href="style.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lexus | An Exceptional Journey Awaits</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-<header>
-    <img src="assets/lexus-logo.png" alt="Lexus Logo" class="logo">
-</header>
+<div class="container">
+
+    <img src="assets/lexus-logo.png" class="logo" alt="Lexus">
+
+    <h1>
+        An Exceptional Journey Awaits
+    </h1>
 
 
-<section class="hero">
+    <div class="divider"></div>
 
-    <div class="hero-content">
 
-        <p class="eyebrow">A LEGACY OF PRECISION</p>
+    <p class="subtitle">
+        Please verify your registration details below to proceed
+    </p>
 
-        <h1>
-            Glimpse<br>
-            of Gold
-        </h1>
 
-        <p class="description">
-            An exclusive journey into craftsmanship,
-            innovation and the pursuit of perfection.
-        </p>
+    <div class="form-box">
 
-        <a href="#experience" class="button">
-            Discover
-        </a>
+        <label>
+            Identification Number (NRIC)
+        </label>
+
+
+        <input 
+        type="text"
+        id="nric"
+        maxlength="12"
+        placeholder="YYMMDDXXXXXX">
+
+
+        <small>
+            Please enter your NRIC without dashes (e.g., YYMMDDXXXXXX) to verify your eligibility.
+        </small>
+
+
+        <button onclick="verifyNRIC()">
+            Proceed
+        </button>
+
+
+        <p id="error"></p>
 
     </div>
 
-</section>
 
-
-<section id="experience" class="experience">
-
-    <h2>
-        Crafted Beyond Expectation
-    </h2>
-
-    <p>
-        Every Lexus is shaped by Takumi craftsmanship,
-        where human touch meets extraordinary precision.
-    </p>
-
-</section>
-
-
-<footer>
-
-    <p>
-        © Lexus Malaysia
-    </p>
-
-</footer>
+</div>
 
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
