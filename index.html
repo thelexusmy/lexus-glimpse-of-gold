@@ -2,72 +2,86 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lexus | An Exceptional Journey Awaits</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>Lexus | Glimpse of Gold</title>
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
 
-<div class="container">
+<div class="container hero">
 
-<p class="eyebrow">
-A LEGACY OF PRECISION
-</p>
+    <p class="eyebrow">
+        A LEGACY OF PRECISION
+    </p>
 
+    <img
+        src="assets/lexus-logo.png"
+        alt="Lexus Malaysia"
+        class="logo">
 
-<img src="assets/lexus-logo.png" class="logo" alt="Lexus">
-
-
-<h1>
-An Exceptional Journey Awaits
-</h1>
-
+    <h1>
+        An Exceptional Journey Awaits
+    </h1>
 
     <div class="divider"></div>
 
-
     <p class="subtitle">
-        Please verify your registration details below to proceed
+
+        Please verify your registration details below to proceed.
+
     </p>
 
+    <form
+        id="verifyForm"
+        class="form-card"
+        autocomplete="off">
 
-    <form class="form-box" id="verifyForm">
+        <label for="nric">
 
-        <label>
             Identification Number (NRIC)
+
         </label>
 
+        <input
 
-        <input 
-        type="text"
-        id="nric"
-        maxlength="12"
-        placeholder="YYMMDDXXXXXX">
+            id="nric"
 
+            type="text"
+
+            maxlength="12"
+
+            inputmode="numeric"
+
+            placeholder="YYMMDDXXXXXX"
+
+            required>
 
         <small>
-            Please enter your NRIC without dashes (e.g., YYMMDDXXXXXX) to verify your eligibility.
+
+            Please enter your NRIC without dashes
+            (e.g. YYMMDDXXXXXX)
+            to verify your eligibility.
+
         </small>
 
-
         <button type="submit">
-            Proceed
-        </button>
 
+            Proceed
+
+        </button>
 
         <p id="error"></p>
 
     </form>
 
-
 </div>
-
 
 <script src="script.js"></script>
 
