@@ -381,16 +381,20 @@ button:hover{
 
 /* ---------- ERROR ---------- */
 
-#error{
-
+#error
+{
     margin-top:18px;
-
     color:#ff7c7c;
-
     text-align:center;
-
 }
 
+.field-error
+{
+    color:#ff7b7b;
+    font-size:.8rem;
+    margin-top:-18px;
+    margin-bottom:18px;
+}
 
 
 /* ---------- SECTION ---------- */
