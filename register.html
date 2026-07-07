@@ -17,7 +17,10 @@
   </h1>
   <div class="divider"></div>
 
-  <form class="form-box">
+  <form
+    id="registrationForm"
+    class="form-box"
+    novalidate>
     <label>
       Identification Number (NRIC)
     </label>
@@ -37,6 +40,7 @@
   <label>Full Name</label>
     <input 
       type="text"
+      id="fullname"
       required>
     <p class="field-error" id="nameError"></p>
 
@@ -53,6 +57,7 @@
   <label>Email</label>
     <input
       type="email"
+      id="email"
       required>
     <p class="field-error" id="emailError"></p>
   
@@ -145,25 +150,25 @@
   <input 
     type="checkbox"
     id = "consent1"
+    class="consent"
     required>
   I acknowledge that I have read, understood, and agree to the Terms & Conditions stated above.
   </label>
-  <p class="field-error" id="consentError"></p>
-  
   
   <label class="checkbox">
   <input 
     type="checkbox"
     id = "consent2"
+    class="consent"
     required>
   I confirm that I have submitted my signed indemnity letter and a copy of my valid driver’s license to the respective Lexus outlet.
   </label>
-  <p class="field-error" id="consentError"></p> 
   
   <label class="checkbox">
   <input 
     type="checkbox"
     id = "consent3"
+    class="consent"
     required>
   I agree and consent to the collection, use, and processing of my personal data by UMW Toyota Motor Sdn Bhd (Lexus Malaysia) in accordance with the Personal Data Protection Act 2010 and Lexus Malaysia’s Privacy Policy.
   </label>
@@ -189,6 +194,6 @@
   
   </div>
 
-
+<script src="script.js"></script>
 </body>
 </html>
