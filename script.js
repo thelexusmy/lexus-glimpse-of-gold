@@ -27,20 +27,16 @@ verifyForm.addEventListener("submit", function (event) {
 
 });
 
-    const registeredNRIC =
-    document.getElementById("registeredNRIC");
-    
-    if(registeredNRIC){
-    
-        const savedNRIC =
-        sessionStorage.getItem("nric");
-    
-        if(!savedNRIC){
-    
-            window.location.href="index.html";
-    
-        }
-    
-        registeredNRIC.value=savedNRIC;
-    
+    const registeredNRIC = document.getElementById("registeredNRIC");
+
+if (registeredNRIC) {
+
+    const savedNRIC = sessionStorage.getItem("nric");
+
+    if (!savedNRIC) {
+        window.location.href = "index.html";
+    } else {
+        registeredNRIC.value = savedNRIC;
+    }
+
 }
