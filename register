@@ -32,7 +32,22 @@ Registration
 
 
 <form class="form-box">
+  <label>
+    Identification Number (NRIC)
+  </label>
 
+  <input
+    id="registeredNRIC"
+    class="readonly"
+    readonly>
+
+<div class="section">
+
+<h2>
+Personal Information
+</h2>
+
+</div>
 
 <label>Full Name</label>
 <input type="text">
@@ -45,28 +60,40 @@ Registration
 <label>Email</label>
 <input type="email">
 
+<div class="section">
+
+<h2>
+Experience
+</h2>
+
+</div>
 
 <label>Lexus Outlet</label>
 
 <select>
 <option>Select Outlet</option>
-<option>Lexus Petaling Jaya</option>
-<option>Lexus Kuala Lumpur</option>
+<option>Lexus Mutiara Damansara</option>
+<option>Lexus Sungai Besi</option>
+<option>Lexus Klang</option>
+<option>Lexus Subang</option>
+<option>Lexus Johor (Medini)</option>
+<option>Lexus Johor (Tebrau)</option>
 <option>Lexus Penang</option>
+<option>Lexus Ipoh</option>
+<option>Lexus Kuantan</option>
+<option>Lexus Kota Bharu</option>
+<option>Lexus Kuching</option>
+<option>Lexus Kota Kinabalu</option>
 </select>
 
 
 <label>Lexus Model Test Drive</label>
 
 <select>
-
 <option>Select Model</option>
 <option>Lexus LBX</option>
 <option>Lexus NX</option>
 <option>Lexus RX</option>
-<option>Lexus ES</option>
-<option>Lexus LM</option>
-
 </select>
 
 
@@ -84,7 +111,13 @@ Customer Interest (Maximum 3)
 
 </select>
 
+<div class="section">
 
+<h2>
+Participant Declaration
+</h2>
+
+</div>
 
 <label class="checkbox">
 
