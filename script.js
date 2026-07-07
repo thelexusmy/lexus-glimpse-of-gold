@@ -19,8 +19,7 @@ verifyForm.addEventListener("submit", function (event) {
 
     error.textContent = "";
 
-    // Later:
-    // Check Google Sheets here
+        /*store nric*/
 
     sessionStorage.setItem("nric", nric);
     window.location.href = "register.html";
@@ -39,4 +38,55 @@ if (registeredNRIC) {
         registeredNRIC.value = savedNRIC;
     }
 
+    /*phone restriction*/
 }
+
+const phone = document.getElementById("phone").value.trim();
+
+if(phone.length < 10 || phone.length > 11){
+
+    document.getElementById("phoneError").textContent =
+    "Please enter a valid Malaysian mobile number.";
+
+    return;
+
+    /*email restriction*/
+}
+
+const email = document.getElementById("email");
+
+if(!email.checkValidity()){
+
+    document.getElementById("emailError").textContent =
+    "Please enter a valid email address.";
+
+    return;
+
+}
+
+    /*interest restriction*/
+const interests = document.querySelectorAll('input[name="interest"]');
+
+interests.forEach(item=>{
+
+    item.addEventListener("change",()=>{
+
+        const selected =
+        document.querySelectorAll('input[name="interest"]:checked');
+
+        if(selected.length>3){
+
+            item.checked=false;
+
+            document.getElementById("interestError").textContent =
+            "You may select up to 3 interests only.";
+
+        }else{
+
+            document.getElementById("interestError").textContent="";
+
+        }
+
+    });
+
+});
