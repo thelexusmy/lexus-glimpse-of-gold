@@ -13,6 +13,7 @@ function loadRegistrationPage()
     setupOutletValidation();
     setupModelValidation();
     setupInterestValidation();
+    setupConsentValidation();
 }
 
 /*LOAD NRIC*/
@@ -179,4 +180,31 @@ function setupInterestValidation()
             }
         });
     });
+}
+
+/*CONSENT*/
+
+function setupConsentValidation()
+{
+    const consents = document.querySelectorAll(".consent");
+
+    if(consents.length == 0)
+    {
+        return;
+    }
+    consents.forEach(function(item)
+    {
+        item.addEventListener("change", function()
+        {
+            const checked = document.querySelectorAll(".consent:checked");
+            const error = document.getElementById("consentError");
+
+            if(checked.length == 3)
+            {
+                error.textContent = "";
+            }
+        });
+
+    });
+
 }
