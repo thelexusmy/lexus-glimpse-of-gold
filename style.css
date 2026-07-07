@@ -1,137 +1,62 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@font-face {
 
+    font-family: "LexusNobel";
 
-body {
-    background: #050505;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    src: url("assets/Nobel-Regular.otf");
 
-
-/* HEADER */
-
-header {
-
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
+    font-weight: 400;
 
 }
 
 
-.logo {
+@font-face {
 
-    width: 150px;
+    font-family: "LexusNobel";
 
-}
+    src: url("assets/Nobel-Bold.otf");
 
-
-/* HERO */
-
-.hero {
-
-    height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(180,130,40,0.18),
-    transparent 40%),
-    #050505;
+    font-weight: 700;
 
 }
 
 
-.hero-content {
+@font-face {
 
-    max-width: 800px;
+    font-family: "LexusNobel";
 
-}
-
-
-.eyebrow {
-
-    letter-spacing: 5px;
-    font-size: 12px;
-    color: #c9a24d;
-
-    margin-bottom: 30px;
-
-}
-
-
-h1 {
-
-    font-size: clamp(70px, 10vw, 140px);
+    src: url("assets/Nobel-Light.otf");
 
     font-weight: 300;
 
-    line-height: 0.9;
+}
 
-    letter-spacing: -3px;
+
+
+* {
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 
 }
 
 
-.description {
 
-    margin: 40px auto;
+body {
 
-    max-width: 450px;
-
-    color: #cccccc;
-
-    line-height: 1.8;
-
-}
-
-
-/* BUTTON */
-
-.button {
-
-    display: inline-block;
-
-    padding: 15px 40px;
-
-    border: 1px solid #c9a24d;
-
-    color: #c9a24d;
-
-    text-decoration: none;
-
-    letter-spacing: 2px;
-
-    transition: .4s;
-
-}
-
-
-.button:hover {
-
-    background: #c9a24d;
+    background:#050505;
 
     color:white;
 
+    font-family:"LexusNobel", Arial, sans-serif;
+
 }
 
 
-/* SECOND SECTION */
 
-.experience {
+.container {
 
-    min-height: 60vh;
+    min-height:100vh;
 
     display:flex;
 
@@ -148,36 +73,280 @@ h1 {
 }
 
 
-.experience h2 {
 
-    font-size:45px;
+/* Lexus logo */
+
+.logo {
+
+    width:160px;
+
+    margin-bottom:45px;
+
+}
+
+
+
+/* Small tagline */
+
+.eyebrow {
+
+    color:#c9a24d;
+
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    margin-bottom:35px;
+
+    font-weight:400;
+
+}
+
+
+
+h1 {
+
+
+    font-size:clamp(45px,6vw,90px);
+
+    font-weight:700;
+
+    line-height:1.05;
+
+    letter-spacing:-1px;
+
+}
+
+
+
+.divider {
+
+
+    width:80px;
+
+    height:1px;
+
+    background:#c9a24d;
+
+    margin:45px auto;
+
+
+}
+
+
+
+.subtitle {
+
+
+    font-size:18px;
 
     font-weight:300;
 
+    color:#d0d0d0;
+
+    margin-bottom:50px;
+
+
+}
+
+
+
+.form-box {
+
+
+    width:100%;
+
+    max-width:420px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:left;
+
+
+}
+
+
+
+.form-box label {
+
+
+    font-size:15px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+input,
+select {
+
+
+    background:transparent;
+
+    border:1px solid #555;
+
+    padding:16px;
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:16px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+input:focus,
+select:focus {
+
+
+    outline:none;
+
+    border-color:#c9a24d;
+
+
+}
+
+
+
+small {
+
+
+    color:#888;
+
+    font-size:12px;
+
+    line-height:1.6;
+
     margin-bottom:30px;
 
-}
-
-
-.experience p {
-
-    max-width:600px;
-
-    color:#aaa;
-
-    line-height:2;
 
 }
 
 
-/* FOOTER */
 
-footer {
+button,
+.button {
+
+
+    background:transparent;
+
+    border:1px solid #c9a24d;
+
+    color:#c9a24d;
+
+    padding:16px 45px;
+
+    font-family:inherit;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    text-decoration:none;
 
     text-align:center;
 
-    padding:30px;
+}
 
-    color:#777;
+
+
+button:hover,
+.button:hover {
+
+
+    background:#c9a24d;
+
+    color:black;
+
+
+}
+
+
+
+#error {
+
+
+    margin-top:20px;
+
+    color:#d66;
+
+    text-align:center;
+
+}
+
+
+
+.checkbox {
+
+
+    display:flex;
+
+    gap:12px;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.checkbox input {
+
+
+    width:auto;
+
+    margin:0;
+
+}
+
+
+
+.links {
+
+    font-size:13px;
+
+    margin:20px 0;
+
+}
+
+
+
+.links a {
+
+
+    color:#c9a24d;
+
+}
+
+
+
+@media(max-width:600px){
+
+
+    h1 {
+
+        font-size:45px;
+
+    }
+
+
+    .logo {
+
+        width:130px;
+
+    }
+
 
 }
