@@ -1,3 +1,35 @@
+/*LANDING PAGE*/
+const verifyForm = document.getElementById("verifyForm");
+
+if(verifyForm)
+{
+    verifyForm.addEventListener("submit", function(event)
+    {
+        event.preventDefault();
+
+        const nric =
+        document.getElementById("nric").value.trim();
+
+        const error =
+        document.getElementById("error");
+
+        if(!/^\d{12}$/.test(nric))
+        {
+            error.textContent =
+            "Please enter a valid 12-digit NRIC number without dashes.";
+
+            return;
+        }
+
+        error.textContent = "";
+
+        sessionStorage.setItem("nric", nric);
+
+        window.location.href = "register.html";
+
+    });
+}
+
 /*REGISTER PAGE*/
 if(window.location.pathname.endsWith("register.html"))
 {
