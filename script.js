@@ -62,6 +62,8 @@ function loadNRIC()
         return;
     }
     registeredNRIC.value = savedNRIC;
+    console.log("Input:", registeredNRIC);
+    console.log("Value:", registeredNRIC.value);
 }
 
 
