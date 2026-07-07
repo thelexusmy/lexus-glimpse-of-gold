@@ -50,15 +50,25 @@ Personal Information
 </div>
 
 <label>Full Name</label>
-<input type="text">
+<input 
+  type="text"
+  required>
 
 
 <label>Phone Number</label>
-<input type="tel">
+<input
+type="tel"
+id="phone"
+maxlength="11"
+inputmode="numeric"
+oninput="this.value=this.value.replace(/\D/g,'')"
+required>
 
 
 <label>Email</label>
-<input type="email">
+<input
+type="email"
+required>
 
 <div class="section">
 
@@ -120,32 +130,25 @@ Participant Declaration
 </div>
 
 <label class="checkbox">
-
-<input type="checkbox">
-
+<input 
+  type="checkbox"
+  required>
 I acknowledge that I have read, understood, and agree to the Terms & Conditions stated above.
-
 </label>
 
-
 <label class="checkbox">
-
-<input type="checkbox">
-
+<input 
+  type="checkbox"
+  required>
 I confirm that I have submitted my signed indemnity letter and a copy of my valid driver’s license to the respective Lexus outlet.
-
 </label>
-
-
 
 <label class="checkbox">
-
-<input type="checkbox">
-
+<input 
+  type="checkbox"
+  required>
 I agree and consent to the collection, use, and processing of my personal data by UMW Toyota Motor Sdn Bhd (Lexus Malaysia) in accordance with the Personal Data Protection Act 2010 and Lexus Malaysia’s Privacy Policy.
-
 </label>
-
 
 
 <p class="links">
@@ -155,7 +158,6 @@ I agree and consent to the collection, use, and processing of my personal data b
 <a href="#">Privacy Notice</a>
 
 </p>
-
 
 
 <button type="submit">
