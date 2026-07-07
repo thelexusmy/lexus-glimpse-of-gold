@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Lexus | Thank You</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<img src="assets/lexus-logo.png" class="logo">
+
+
+<h1>
+Thank You
+</h1>
+
+
+<div class="divider"></div>
+
+
+<p class="subtitle">
+
+Your registration has been successfully submitted.
+
+We look forward to welcoming you to an exceptional Lexus experience.
+
+</p>
+
+
+<a class="button" href="https://www.lexus.com.my">
+
+Explore Lexus
+
+</a>
+
+
+</div>
+
+
+</body>
+
+</html>
