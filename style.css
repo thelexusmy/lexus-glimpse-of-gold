@@ -309,11 +309,10 @@ select:focus{
 /* ---------- READ ONLY ---------- */
 
 .readonly{
-
-    color:#777;
-
+    background:#151515;
+    color:#d9d9d9;
+    border-bottom:1px solid var(--gold);
     cursor:not-allowed;
-
 }
 
 
