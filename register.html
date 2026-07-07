@@ -1,227 +1,193 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lexus Registration</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexus Registration</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+  <div class="container">
+  <img src="assets/lexus-logo.png" class="logo">
 
-<div class="container">
+  <h1>
+    Registration
+  </h1>
+  <div class="divider"></div>
 
-
-<img src="assets/lexus-logo.png" class="logo">
-
-
-<h1>
-Registration
-</h1>
-
-
-<div class="divider"></div>
-
-
-<form class="form-box">
-  <label>
-    Identification Number (NRIC)
-  </label>
+  <form class="form-box">
+    <label>
+      Identification Number (NRIC)
+    </label>
 
   <input
     id="registeredNRIC"
     class="readonly"
     readonly>
 
-<div class="section">
+  <div class="section">
+    <h2>
+    Personal Information
+    </h2>
+  </div>
 
-<h2>
-Personal Information
-</h2>
+  <label>Full Name</label>
+    <input 
+      type="text"
+      required>
+    <p class="field-error" id="nameError"></p>
 
-</div>
+  <label>Phone Number</label>
+    <input
+      type="tel"
+      id="phone"
+      maxlength="11"
+      inputmode="numeric"
+      oninput="this.value=this.value.replace(/\D/g,'')"
+      required>
+    <p class="field-error" id="phoneError"></p>
 
-<label>Full Name</label>
-<input 
-  type="text"
-  required>
-
-
-<label>Phone Number</label>
-  <input
-  type="tel"
-  id="phone"
-  maxlength="11"
-  inputmode="numeric"
-  oninput="this.value=this.value.replace(/\D/g,'')"
-  required>
-  <p class="field-error" id="phoneError"></p>
-
-
-<label>Email</label>
-  <input
-  type="email"
-  required>
-  <p class="field-error" id="emailError"></p>
+  <label>Email</label>
+    <input
+      type="email"
+      required>
+    <p class="field-error" id="emailError"></p>
   
-<div class="section">
+  <div class="section">
+    <h2>
+      Experience
+    </h2>
+  </div>
 
-<h2>
-Experience
-</h2>
-
-</div>
-
-<label>Lexus Outlet</label>
-
-  <select id="outlet" required>
-  <option value="" selected disabled>
-        Select Lexus Outlet
-  </option>
-  <option>Lexus Mutiara Damansara</option>
-  <option>Lexus Sungai Besi</option>
-  <option>Lexus Klang</option>
-  <option>Lexus Subang</option>
-  <option>Lexus Johor (Medini)</option>
-  <option>Lexus Johor (Tebrau)</option>
-  <option>Lexus Penang</option>
-  <option>Lexus Ipoh</option>
-  <option>Lexus Kuantan</option>
-  <option>Lexus Kota Bharu</option>
-  <option>Lexus Kuching</option>
-  <option>Lexus Kota Kinabalu</option>
-  </select>
-  <p class="field-error" id="outletError"></p>
-
-
-<label>Lexus Model Test Drive</label>
-
-  <select id="model" required>
-  <option value="" selected disabled>
-        Select Model
-  </option>
-
-  <option>Lexus LBX</option>
-  <option>Lexus NX</option>
-  <option>Lexus RX</option>
-  </select>
-  <p class="field-error" id="modelError"></p>
-
-
-<label>
-Customer Interest (Maximum 3)
-</label>
-
-<p class="interest-note">
-Select up to 3 interests.
-</p>
-
-<div class="interests">
-
-<label><input type="checkbox" name="interest" value="Golf">Golf</label>
-
-<label><input type="checkbox" name="interest" value="Fine Dining & Culinary Experiences">Fine Dining & Culinary Experiences</label>
-
-<label><input type="checkbox" name="interest" value="Liquor Appreciation">Liquor Appreciation (Wine, Champagne, Whiskey)</label>
-
-<label><input type="checkbox" name="interest" value="Luxury Travel">Luxury Travel</label>
-
-<label><input type="checkbox" name="interest" value="Wellness & Spa Retreats">Wellness & Spa Retreats</label>
-
-<label><input type="checkbox" name="interest" value="Cycling">Cycling</label>
-
-<label><input type="checkbox" name="interest" value="Tennis">Tennis</label>
-
-<label><input type="checkbox" name="interest" value="Padel">Padel</label>
-
-<label><input type="checkbox" name="interest" value="Pilates">Pilates</label>
-
-<label><input type="checkbox" name="interest" value="Yachting & Sailing">Yachting & Sailing</label>
-
-<label><input type="checkbox" name="interest" value="Motorsports">Motorsports</label>
-
-<label><input type="checkbox" name="interest" value="Art & Gallery Exhibitions">Art & Gallery Exhibitions</label>
-
-<label><input type="checkbox" name="interest" value="Live Music & Concerts">Live Music & Concerts</label>
-
-<label><input type="checkbox" name="interest" value="Theatre & Performing Arts">Theatre & Performing Arts</label>
-
-<label><input type="checkbox" name="interest" value="Fashion & Luxury Retail">Fashion & Luxury Retail</label>
-
-<label><input type="checkbox" name="interest" value="Watches & Horology">Watches & Horology</label>
-
-<label><input type="checkbox" name="interest" value="Collectibles & Luxury Goods">Collectibles & Luxury Goods</label>
-
-<label><input type="checkbox" name="interest" value="Business Networking">Business Networking</label>
-
-<label><input type="checkbox" name="interest" value="Japanese Culture & Omotenashi">Japanese Culture & Omotenashi</label>
-
-<label><input type="checkbox" name="interest" value="Family & Children's Activities">Family & Children's Activities</label>
-
-<label><input type="checkbox" name="interest" value="Charity & Philanthropy">Charity & Philanthropy</label>
-
-</div>
-
-<p id="interestError" class="field-error"></p>
-
-<div class="section">
-
-<h2>
-Participant Declaration
-</h2>
-
-</div>
-
-<label class="checkbox">
-<input 
-  type="checkbox"
-  required>
-I acknowledge that I have read, understood, and agree to the Terms & Conditions stated above.
-</label>
-
-<label class="checkbox">
-<input 
-  type="checkbox"
-  required>
-I confirm that I have submitted my signed indemnity letter and a copy of my valid driver’s license to the respective Lexus outlet.
-</label>
-
-<label class="checkbox">
-<input 
-  type="checkbox"
-  required>
-I agree and consent to the collection, use, and processing of my personal data by UMW Toyota Motor Sdn Bhd (Lexus Malaysia) in accordance with the Personal Data Protection Act 2010 and Lexus Malaysia’s Privacy Policy.
-</label>
-
-
-<p class="links">
-
-<a href="#">Terms & Conditions</a>
-|
-<a href="#">Privacy Notice</a>
-
-</p>
-
-
-<button type="submit">
-Submit
-</button>
-
-
-</form>
-
-
-</div>
+  <label>Lexus Outlet</label>
+  
+    <select id="outlet" required>
+    <option value="" selected disabled>
+          Select Lexus Outlet
+    </option>
+    <option>Lexus Mutiara Damansara</option>
+    <option>Lexus Sungai Besi</option>
+    <option>Lexus Klang</option>
+    <option>Lexus Subang</option>
+    <option>Lexus Johor (Medini)</option>
+    <option>Lexus Johor (Tebrau)</option>
+    <option>Lexus Penang</option>
+    <option>Lexus Ipoh</option>
+    <option>Lexus Kuantan</option>
+    <option>Lexus Kota Bharu</option>
+    <option>Lexus Kuching</option>
+    <option>Lexus Kota Kinabalu</option>
+    </select>
+    <p class="field-error" id="outletError"></p>
+  
+  
+  <label>Lexus Model Test Drive</label>
+  
+    <select id="model" required>
+    <option value="" selected disabled>
+          Select Model
+    </option>
+  
+    <option>Lexus LBX</option>
+    <option>Lexus NX</option>
+    <option>Lexus RX</option>
+    </select>
+    <p class="field-error" id="modelError"></p>
+  
+  
+  <label>
+  Customer Interest (Maximum 3)
+  </label>
+  
+  <p class="interest-note">
+  Select up to 3 interests.
+  </p>
+  
+  <div class="interests">
+  
+  <label><input type="checkbox" name="interest" value="Golf">Golf</label>
+  <label><input type="checkbox" name="interest" value="Fine Dining & Culinary Experiences">Fine Dining & Culinary Experiences</label>
+  <label><input type="checkbox" name="interest" value="Liquor Appreciation">Liquor Appreciation (Wine, Champagne, Whiskey)</label>
+  <label><input type="checkbox" name="interest" value="Luxury Travel">Luxury Travel</label>
+  <label><input type="checkbox" name="interest" value="Wellness & Spa Retreats">Wellness & Spa Retreats</label>
+  <label><input type="checkbox" name="interest" value="Cycling">Cycling</label>
+  <label><input type="checkbox" name="interest" value="Tennis">Tennis</label>
+  <label><input type="checkbox" name="interest" value="Padel">Padel</label>
+  <label><input type="checkbox" name="interest" value="Pilates">Pilates</label>
+  <label><input type="checkbox" name="interest" value="Yachting & Sailing">Yachting & Sailing</label>
+  <label><input type="checkbox" name="interest" value="Motorsports">Motorsports</label>
+  <label><input type="checkbox" name="interest" value="Art & Gallery Exhibitions">Art & Gallery Exhibitions</label>
+  <label><input type="checkbox" name="interest" value="Live Music & Concerts">Live Music & Concerts</label>
+  <label><input type="checkbox" name="interest" value="Theatre & Performing Arts">Theatre & Performing Arts</label>
+  <label><input type="checkbox" name="interest" value="Fashion & Luxury Retail">Fashion & Luxury Retail</label>
+  <label><input type="checkbox" name="interest" value="Watches & Horology">Watches & Horology</label>
+  <label><input type="checkbox" name="interest" value="Collectibles & Luxury Goods">Collectibles & Luxury Goods</label>
+  <label><input type="checkbox" name="interest" value="Business Networking">Business Networking</label>
+  <label><input type="checkbox" name="interest" value="Japanese Culture & Omotenashi">Japanese Culture & Omotenashi</label>
+  <label><input type="checkbox" name="interest" value="Family & Children's Activities">Family & Children's Activities</label>
+  <label><input type="checkbox" name="interest" value="Charity & Philanthropy">Charity & Philanthropy</label>
+  </div>
+  
+  <p id="interestError" class="field-error"></p>
+  
+  <div class="section">
+  
+  <h2>
+  Participant Declaration
+  </h2>
+  
+  </div>
+  
+  <label class="checkbox">
+  <input 
+    type="checkbox"
+    id = "consent1"
+    required>
+  I acknowledge that I have read, understood, and agree to the Terms & Conditions stated above.
+  </label>
+  <p class="field-error" id="consentError"></p>
+  
+  
+  <label class="checkbox">
+  <input 
+    type="checkbox"
+    id = "consent2"
+    required>
+  I confirm that I have submitted my signed indemnity letter and a copy of my valid driver’s license to the respective Lexus outlet.
+  </label>
+  <p class="field-error" id="consentError"></p> 
+  
+  <label class="checkbox">
+  <input 
+    type="checkbox"
+    id = "consent3"
+    required>
+  I agree and consent to the collection, use, and processing of my personal data by UMW Toyota Motor Sdn Bhd (Lexus Malaysia) in accordance with the Personal Data Protection Act 2010 and Lexus Malaysia’s Privacy Policy.
+  </label>
+  <p class="field-error" id="consentError"></p>
+  
+  
+  <p class="links">
+  
+  <a href="#">Terms & Conditions</a>
+  |
+  <a href="#">Privacy Notice</a>
+  
+  </p>
+  
+  
+  <button type="submit">
+  Submit
+  </button>
+  
+  
+  </form>
+  
+  
+  </div>
 
 
 </body>
-
 </html>
