@@ -1,38 +1,51 @@
-@font-face {
+/* ==========================================================
+   LEXUS GLIMPSE OF GOLD
+   Version 2
+========================================================== */
 
-    font-family: "LexusNobel";
 
-    src: url("assets/Nobel-Regular.otf");
+/* ---------- FONTS ---------- */
 
-    font-weight: 400;
-
+@font-face{
+    font-family:'Nobel';
+    src:url('assets/Nobel-Light.otf');
+    font-weight:300;
 }
 
-
-@font-face {
-
-    font-family: "LexusNobel";
-
-    src: url("assets/Nobel-Bold.otf");
-
-    font-weight: 700;
-
+@font-face{
+    font-family:'Nobel';
+    src:url('assets/Nobel-Regular.otf');
+    font-weight:400;
 }
 
-
-@font-face {
-
-    font-family: "LexusNobel";
-
-    src: url("assets/Nobel-Light.otf");
-
-    font-weight: 300;
-
+@font-face{
+    font-family:'Nobel';
+    src:url('assets/Nobel-Bold.otf');
+    font-weight:700;
 }
 
 
 
-* {
+/* ---------- VARIABLES ---------- */
+
+:root{
+
+    --bg:#070707;
+    --gold:#c8a75b;
+    --white:#ffffff;
+    --grey:#9d9d9d;
+    --line:#333333;
+    --input:#111111;
+
+    --transition:.35s ease;
+
+}
+
+
+
+/* ---------- RESET ---------- */
+
+*{
 
     margin:0;
     padding:0;
@@ -40,78 +53,105 @@
 
 }
 
+html{
 
+    scroll-behavior:smooth;
 
-body {
+}
 
-    background:#050505;
+body{
+
+    background:var(--bg);
 
     color:white;
 
-    font-family:"LexusNobel", Arial, sans-serif;
+    font-family:'Nobel',sans-serif;
+
+    min-height:100vh;
 
 }
 
 
 
-.container {
+/* ---------- CONTAINER ---------- */
 
-    min-height:100vh;
+.container{
+
+    width:min(92%,1100px);
+
+    margin:auto;
+
+    padding:70px 0 100px;
+
+}
+
+
+
+/* ---------- HEADER ---------- */
+
+.hero{
 
     display:flex;
 
     flex-direction:column;
 
-    justify-content:center;
-
     align-items:center;
+
+    justify-content:center;
 
     text-align:center;
 
-    padding:40px;
+    min-height:100vh;
 
 }
 
 
 
-/* Lexus logo */
+/* ---------- GOLD TAG ---------- */
 
-.logo {
+.eyebrow{
 
-    width:160px;
-
-    margin-bottom:45px;
-
-}
-
-
-
-/* Small tagline */
-
-.eyebrow {
-
-    color:#c9a24d;
-
-    font-size:14px;
+    color:var(--gold);
 
     letter-spacing:5px;
 
-    margin-bottom:35px;
+    font-size:.78rem;
 
-    font-weight:400;
+    margin-bottom:45px;
+
+    text-transform:uppercase;
 
 }
 
 
 
-h1 {
+/* ---------- LOGO ---------- */
+
+.logo{
+
+    width:180px;
+
+    margin-bottom:55px;
+
+    animation:fadeLogo 1.8s ease;
+
+    filter:drop-shadow(0 0 35px rgba(200,167,91,.12));
+
+}
 
 
-    font-size:clamp(45px,6vw,90px);
+
+/* ---------- TITLE ---------- */
+
+h1{
+
+    font-size:clamp(2.5rem,6vw,5.6rem);
 
     font-weight:700;
 
     line-height:1.05;
+
+    margin-bottom:30px;
 
     letter-spacing:-1px;
 
@@ -119,165 +159,187 @@ h1 {
 
 
 
-.divider {
+.subtitle{
+
+    color:#cfcfcf;
+
+    font-size:1.08rem;
+
+    max-width:600px;
+
+    line-height:1.8;
+
+    margin:auto;
+
+}
 
 
-    width:80px;
+
+/* ---------- DIVIDER ---------- */
+
+.divider{
+
+    width:90px;
 
     height:1px;
 
-    background:#c9a24d;
+    background:var(--gold);
 
     margin:45px auto;
 
+}
+
+
+
+/* ---------- FORM ---------- */
+
+.form-card{
+
+    margin-top:70px;
+
+    max-width:640px;
+
+    margin-left:auto;
+
+    margin-right:auto;
 
 }
 
 
 
-.subtitle {
+/* ---------- LABEL ---------- */
 
+label{
 
-    font-size:18px;
-
-    font-weight:300;
-
-    color:#d0d0d0;
-
-    margin-bottom:50px;
-
-
-}
-
-
-
-.form-box {
-
-
-    width:100%;
-
-    max-width:420px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    text-align:left;
-
-
-}
-
-
-
-.form-box label {
-
-
-    font-size:15px;
+    display:block;
 
     margin-bottom:12px;
 
+    font-size:.92rem;
+
 }
 
 
 
-input,
-select {
+/* ---------- INPUT ---------- */
 
+input,
+select{
+
+    width:100%;
 
     background:transparent;
-
-    border:1px solid #555;
-
-    padding:16px;
 
     color:white;
 
-    font-family:inherit;
+    border:none;
 
-    font-size:16px;
+    border-bottom:1px solid var(--line);
 
-    margin-bottom:15px;
+    padding:18px 0;
+
+    font-family:'Nobel';
+
+    font-size:1rem;
+
+    transition:var(--transition);
 
 }
 
 
 
-input:focus,
-select:focus {
+/* remove ugly browser outline */
 
+input:focus,
+select:focus{
 
     outline:none;
 
-    border-color:#c9a24d;
-
-
-}
-
-
-
-small {
-
-
-    color:#888;
-
-    font-size:12px;
-
-    line-height:1.6;
-
-    margin-bottom:30px;
-
+    border-color:var(--gold);
 
 }
 
 
 
-button,
-.button {
+/* ---------- READ ONLY ---------- */
 
+.readonly{
 
-    background:transparent;
+    color:#777;
 
-    border:1px solid #c9a24d;
-
-    color:#c9a24d;
-
-    padding:16px 45px;
-
-    font-family:inherit;
-
-    letter-spacing:3px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    text-decoration:none;
-
-    text-align:center;
+    cursor:not-allowed;
 
 }
 
 
 
-button:hover,
-.button:hover {
+/* ---------- SMALL TEXT ---------- */
 
+small{
 
-    background:#c9a24d;
+    display:block;
 
-    color:black;
+    color:#7b7b7b;
 
+    line-height:1.7;
+
+    margin-top:12px;
+
+    margin-bottom:45px;
 
 }
 
 
 
-#error {
+/* ---------- BUTTON ---------- */
 
+button{
+
+    width:100%;
+
+    padding:18px;
 
     margin-top:20px;
 
-    color:#d66;
+    background:transparent;
+
+    color:var(--gold);
+
+    border:1px solid var(--gold);
+
+    font-family:'Nobel';
+
+    font-size:.9rem;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+
+
+button:hover{
+
+    background:var(--gold);
+
+    color:black;
+
+}
+
+
+
+/* ---------- ERROR ---------- */
+
+#error{
+
+    margin-top:18px;
+
+    color:#ff7c7c;
 
     text-align:center;
 
@@ -285,68 +347,192 @@ button:hover,
 
 
 
-.checkbox {
+/* ---------- SECTION ---------- */
 
+.section{
+
+    margin-top:70px;
+
+}
+
+
+
+/* ---------- INTEREST GRID ---------- */
+
+.interests{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+
+.interests label{
 
     display:flex;
 
-    gap:12px;
+    align-items:center;
 
-    font-size:13px;
+    gap:10px;
 
-    line-height:1.6;
+    padding:16px;
 
-    margin-bottom:20px;
+    border:1px solid #303030;
+
+    cursor:pointer;
+
+    transition:var(--transition);
 
 }
 
 
 
-.checkbox input {
+.interests label:hover{
 
+    border-color:var(--gold);
+
+}
+
+
+
+.interests input{
 
     width:auto;
 
-    margin:0;
+}
+
+
+
+/* ---------- CONSENT ---------- */
+
+.checkbox{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    margin-bottom:25px;
+
+    line-height:1.8;
+
+    font-size:.92rem;
 
 }
 
 
 
-.links {
+.checkbox input{
 
-    font-size:13px;
+    margin-top:4px;
 
-    margin:20px 0;
-
-}
-
-
-
-.links a {
-
-
-    color:#c9a24d;
+    width:auto;
 
 }
 
 
 
-@media(max-width:600px){
+/* ---------- LINKS ---------- */
+
+.links{
+
+    margin-top:25px;
+
+    margin-bottom:40px;
+
+    font-size:.92rem;
+
+}
 
 
-    h1 {
 
-        font-size:45px;
+.links a{
+
+    color:var(--gold);
+
+    text-decoration:none;
+
+}
+
+
+
+.links a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+
+/* ---------- SUCCESS ---------- */
+
+.success-message{
+
+    max-width:650px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+
+
+/* ---------- ANIMATION ---------- */
+
+@keyframes fadeLogo{
+
+    from{
+
+        opacity:0;
+        transform:translateY(15px);
 
     }
 
+    to{
 
-    .logo {
-
-        width:130px;
+        opacity:1;
+        transform:translateY(0);
 
     }
 
+}
+
+
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+
+    .container{
+
+        width:90%;
+
+    }
+
+    .logo{
+
+        width:145px;
+
+    }
+
+    h1{
+
+        font-size:2.7rem;
+
+    }
+
+    .interests{
+
+        grid-template-columns:1fr;
+
+    }
 
 }
