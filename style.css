@@ -377,8 +377,6 @@ button:hover{
 
 }
 
-
-
 /* ---------- ERROR ---------- */
 
 #error
@@ -388,14 +386,18 @@ button:hover{
     text-align:center;
 }
 
-.field-error
+.invalid
 {
-    color:#ff7b7b;
-    font-size:.8rem;
-    margin-top:-18px;
-    margin-bottom:18px;
+    border-bottom:1px solid #d64545 !important;
 }
 
+.field-error
+{
+    color:#d64545;
+    font-size:0.82rem;
+    margin-top:-18px;
+    margin-bottom:20px;
+}
 
 /* ---------- SECTION ---------- */
 
@@ -587,3 +589,5 @@ button:hover{
     }
 
 }
+
+
