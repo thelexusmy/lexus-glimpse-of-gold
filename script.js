@@ -1,92 +1,182 @@
-const verifyForm = document.getElementById("verifyForm");
+/*REGISTER PAGE*/
+if(window.location.pathname.endsWith("register.html"))
+{
+    loadRegistrationPage();
+}
 
-verifyForm.addEventListener("submit", function (event) {
+function loadRegistrationPage()
+{
+    loadNRIC();
+    setupNameValidation();
+    setupPhoneValidation();
+    setupEmailValidation();
+    setupOutletValidation();
+    setupModelValidation();
+    setupInterestValidation();
+}
 
-    event.preventDefault();
-
-    const nric = document.getElementById("nric").value.trim();
-
-    const error = document.getElementById("error");
-
-    if (!/^\d{12}$/.test(nric)) {
-
-        error.textContent =
-            "Please enter a valid 12-digit NRIC number without dashes.";
-
-        return;
-
-    }
-
-    error.textContent = "";
-
-        /*store nric*/
-
-    sessionStorage.setItem("nric", nric);
-    window.location.href = "register.html";
-
-});
-
+/*LOAD NRIC*/
+function loadNRIC()
+{
     const registeredNRIC = document.getElementById("registeredNRIC");
-
-if (registeredNRIC) {
-
-    const savedNRIC = sessionStorage.getItem("nric");
-
-    if (!savedNRIC) {
-        window.location.href = "index.html";
-    } else {
-        registeredNRIC.value = savedNRIC;
+    
+    if(!registeredNRIC)
+    {
+        return;
     }
-
-    /*phone restriction*/
+    const savedNRIC = sessionStorage.getItem("nric");
+    
+    if(savedNRIC == null)
+    {
+        window.location.href = "index.html";
+        return;
+    }
+    registeredNRIC.value = savedNRIC;
 }
 
-const phone = document.getElementById("phone").value.trim();
+/*NAME*/
+function setupNameValidation()
+{
+    const name = document.getElementById("fullname");
 
-if(phone.length < 10 || phone.length > 11){
+    if(!name)
+    {
+        return;
+    }
+    name.addEventListener("blur", function()
+    {
+        const error = document.getElementById("nameError");
 
-    document.getElementById("phoneError").textContent =
-    "Please enter a valid Malaysian mobile number.";
-
-    return;
-
-    /*email restriction*/
-}
-
-const email = document.getElementById("email");
-
-if(!email.checkValidity()){
-
-    document.getElementById("emailError").textContent =
-    "Please enter a valid email address.";
-
-    return;
-
-}
-
-    /*interest restriction*/
-const interests = document.querySelectorAll('input[name="interest"]');
-
-interests.forEach(item=>{
-
-    item.addEventListener("change",()=>{
-
-        const selected =
-        document.querySelectorAll('input[name="interest"]:checked');
-
-        if(selected.length>3){
-
-            item.checked=false;
-
-            document.getElementById("interestError").textContent =
-            "You may select up to 3 interests only.";
-
-        }else{
-
-            document.getElementById("interestError").textContent="";
-
+        if(this.value.trim() == "")
+        {
+            error.textContent = "Please enter your full name.";
+            this.classList.add("invalid");
+        }
+        else
+        {
+            error.textContent = "";
+            this.classList.remove("invalid");
         }
 
     });
 
-});
+}
+
+/*PHONE*/
+function setupPhoneValidation()
+{
+    const phone = document.getElementById("phone");
+
+    if(!phone)
+    {
+        return;
+    }
+    phone.addEventListener("input", function()
+    {
+        this.value =
+        this.value.replace(/\D/g,"");
+    });
+    phone.addEventListener("blur", function()
+    {
+        const error = document.getElementById("phoneError");
+
+        if(this.value.length < 10 || this.value.length > 11)
+        {
+            error.textContent = "Please enter a valid Malaysian mobile number.";
+            this.classList.add("invalid");
+        }
+        else
+        {
+            error.textContent = "";
+            this.classList.remove("invalid");
+        }
+    });
+
+}
+
+/*EMAIL*/
+function setupEmailValidation()
+{
+    const email = document.getElementById("email");
+
+    if(!email)
+    {
+        return;
+    }
+    email.addEventListener("blur", function()
+    {
+        const error = document.getElementById("emailError");
+
+        if(!this.checkValidity())
+        {
+            error.textContent = "Please enter a valid email address.";
+            this.classList.add("invalid");
+        }
+        else
+        {
+            error.textContent = "";
+            this.classList.remove("invalid");
+        }
+    });
+}
+
+/*OUTLET*/
+function setupOutletValidation()
+{
+    const outlet = document.getElementById("outlet");
+
+    if(!outlet)
+    {
+        return;
+    }
+
+    outlet.addEventListener("change", function()
+    {
+        document.getElementById("outletError").textContent = "";
+        this.classList.remove("invalid");
+    });
+
+}
+
+/*MODEL*/
+
+function setupModelValidation()
+{
+    const model = document.getElementById("model");
+
+    if(!model)
+    {
+        return;
+    }
+    model.addEventListener("change", function()
+    {
+        document.getElementById("modelError").textContent = "";
+        this.classList.remove("invalid");
+    });
+
+}
+
+/*INTEREST*/
+
+function setupInterestValidation()
+{
+    const interests = document.querySelectorAll('input[name="interest"]');
+    interests.forEach(function(item)
+    {
+        item.addEventListener("change", function()
+        {
+            const selected = document.querySelectorAll('input[name="interest"]:checked');
+            const error = document.getElementById("interestError");
+
+            if(selected.length > 3)
+            {
+                this.checked = false;
+                error.textContent = "You may select up to 3 interests only.";
+            }
+            else
+            {
+                error.textContent = "";
+            }
+        });
+    });
+}
