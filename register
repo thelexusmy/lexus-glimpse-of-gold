@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lexus Registration</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<img src="assets/lexus-logo.png" class="logo">
+
+
+<h1>
+Registration
+</h1>
+
+
+<div class="divider"></div>
+
+
+<form class="form-box">
+
+
+<label>Full Name</label>
+<input type="text">
+
+
+<label>Phone Number</label>
+<input type="tel">
+
+
+<label>Email</label>
+<input type="email">
+
+
+<label>Lexus Outlet</label>
+
+<select>
+<option>Select Outlet</option>
+<option>Lexus Petaling Jaya</option>
+<option>Lexus Kuala Lumpur</option>
+<option>Lexus Penang</option>
+</select>
+
+
+<label>Lexus Model Test Drive</label>
+
+<select>
+
+<option>Select Model</option>
+<option>Lexus LBX</option>
+<option>Lexus NX</option>
+<option>Lexus RX</option>
+<option>Lexus ES</option>
+<option>Lexus LM</option>
+
+</select>
+
+
+<label>
+Customer Interest (Maximum 3)
+</label>
+
+<select multiple>
+
+<option>Performance</option>
+<option>Technology</option>
+<option>Luxury Lifestyle</option>
+<option>Ownership Experience</option>
+<option>Electrification</option>
+
+</select>
+
+
+
+<label class="checkbox">
+
+<input type="checkbox">
+
+I acknowledge that I have read, understood, and agree to the Terms & Conditions stated above.
+
+</label>
+
+
+<label class="checkbox">
+
+<input type="checkbox">
+
+I confirm that I have submitted my signed indemnity letter and a copy of my valid driver’s license to the respective Lexus outlet.
+
+</label>
+
+
+
+<label class="checkbox">
+
+<input type="checkbox">
+
+I agree and consent to the collection, use, and processing of my personal data by UMW Toyota Motor Sdn Bhd (Lexus Malaysia) in accordance with the Personal Data Protection Act 2010 and Lexus Malaysia’s Privacy Policy.
+
+</label>
+
+
+
+<p class="links">
+
+<a href="#">Terms & Conditions</a>
+|
+<a href="#">Privacy Notice</a>
+
+</p>
+
+
+
+<button type="submit">
+Submit
+</button>
+
+
+</form>
+
+
+</div>
+
+
+</body>
+
+</html>
