@@ -1,20 +1,25 @@
 function verifyNRIC(){
 
-    let nric = document.getElementById("nric").value;
+    const nric =
+    document.getElementById("nric").value.trim();
 
-    let error = document.getElementById("error");
+
+    const error =
+    document.getElementById("error");
 
 
-    if(!/^\d{12}$/.test(nric)){
+    if(!/^[0-9]{12}$/.test(nric)){
+
 
         error.innerHTML =
-        "Please enter a valid 12-digit NRIC number.";
+        "Please enter a valid 12-digit NRIC number without dashes.";
+
 
         return;
 
     }
 
 
-    window.location.href = "register.html";
+    window.location.href="register.html";
 
 }
