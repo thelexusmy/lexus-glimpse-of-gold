@@ -22,6 +22,7 @@ verifyForm.addEventListener("submit", function (event) {
     // Later:
     // Check Google Sheets here
 
+    sessionStorage.setItem("nric", nric);
     window.location.href = "register.html";
 
 });
