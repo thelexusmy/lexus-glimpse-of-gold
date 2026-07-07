@@ -56,20 +56,22 @@ Personal Information
 
 
 <label>Phone Number</label>
-<input
-type="tel"
-id="phone"
-maxlength="11"
-inputmode="numeric"
-oninput="this.value=this.value.replace(/\D/g,'')"
-required>
+  <input
+  type="tel"
+  id="phone"
+  maxlength="11"
+  inputmode="numeric"
+  oninput="this.value=this.value.replace(/\D/g,'')"
+  required>
+  <p class="field-error" id="phoneError"></p>
 
 
 <label>Email</label>
-<input
-type="email"
-required>
-
+  <input
+  type="email"
+  required>
+  <p class="field-error" id="emailError"></p>
+  
 <div class="section">
 
 <h2>
@@ -80,31 +82,38 @@ Experience
 
 <label>Lexus Outlet</label>
 
-<select>
-<option>Select Outlet</option>
-<option>Lexus Mutiara Damansara</option>
-<option>Lexus Sungai Besi</option>
-<option>Lexus Klang</option>
-<option>Lexus Subang</option>
-<option>Lexus Johor (Medini)</option>
-<option>Lexus Johor (Tebrau)</option>
-<option>Lexus Penang</option>
-<option>Lexus Ipoh</option>
-<option>Lexus Kuantan</option>
-<option>Lexus Kota Bharu</option>
-<option>Lexus Kuching</option>
-<option>Lexus Kota Kinabalu</option>
-</select>
+  <select id="outlet" required>
+  <option value="" selected disabled>
+        Select Lexus Outlet
+  </option>
+  <option>Lexus Mutiara Damansara</option>
+  <option>Lexus Sungai Besi</option>
+  <option>Lexus Klang</option>
+  <option>Lexus Subang</option>
+  <option>Lexus Johor (Medini)</option>
+  <option>Lexus Johor (Tebrau)</option>
+  <option>Lexus Penang</option>
+  <option>Lexus Ipoh</option>
+  <option>Lexus Kuantan</option>
+  <option>Lexus Kota Bharu</option>
+  <option>Lexus Kuching</option>
+  <option>Lexus Kota Kinabalu</option>
+  </select>
+  <p class="field-error" id="outletError"></p>
 
 
 <label>Lexus Model Test Drive</label>
 
-<select>
-<option>Select Model</option>
-<option>Lexus LBX</option>
-<option>Lexus NX</option>
-<option>Lexus RX</option>
-</select>
+  <select id="model" required>
+  <option value="" selected disabled>
+        Select Model
+  </option>
+
+  <option>Lexus LBX</option>
+  <option>Lexus NX</option>
+  <option>Lexus RX</option>
+  </select>
+  <p class="field-error" id="modelError"></p>
 
 
 <label>
