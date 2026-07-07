@@ -1,25 +1,27 @@
-function verifyNRIC(){
+const verifyForm = document.getElementById("verifyForm");
 
-    const nric =
-    document.getElementById("nric").value.trim();
+verifyForm.addEventListener("submit", function (event) {
 
+    event.preventDefault();
 
-    const error =
-    document.getElementById("error");
+    const nric = document.getElementById("nric").value.trim();
 
+    const error = document.getElementById("error");
 
-    if(!/^[0-9]{12}$/.test(nric)){
+    if (!/^\d{12}$/.test(nric)) {
 
-
-        error.innerHTML =
-        "Please enter a valid 12-digit NRIC number without dashes.";
-
+        error.textContent =
+            "Please enter a valid 12-digit NRIC number without dashes.";
 
         return;
 
     }
 
+    error.textContent = "";
 
-    window.location.href="register.html";
+    // Later:
+    // Check Google Sheets here
 
-}
+    window.location.href = "register.html";
+
+});
