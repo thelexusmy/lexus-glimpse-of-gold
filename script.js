@@ -262,3 +262,10 @@ function setupConsentValidation()
         });
     });
 }
+
+firstInvalidField.scrollIntoView(
+{
+    behavior: "smooth",
+    block: "center"
+});
+
