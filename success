@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<title>Lexus | Thank You</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Lexus | Glimpse of Gold
+</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,10 +20,18 @@
 <body>
 
 
-<div class="container">
+<div class="container hero">
 
 
-<img src="assets/lexus-logo.png" class="logo">
+<img
+src="assets/lexus-logo.png"
+class="logo"
+alt="Lexus Malaysia">
+
+
+<p class="eyebrow">
+A LEGACY OF PRECISION
+</p>
 
 
 <h1>
@@ -32,16 +44,29 @@ Thank You
 
 <p class="subtitle">
 
-Your registration has been successfully submitted.
-
-We look forward to welcoming you to an exceptional Lexus experience.
+Your journey with Lexus Glimpse of Gold
+has been successfully registered.
 
 </p>
 
 
-<a class="button" href="https://www.lexus.com.my">
+<p class="subtitle">
+
+Our Lexus team will be in touch with you soon.
+
+</p>
+
+
+
+<a
+href="https://www.lexus.com.my/"
+target="_blank">
+
+<button>
 
 Explore Lexus
+
+</button>
 
 </a>
 
