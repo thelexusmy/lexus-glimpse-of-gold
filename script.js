@@ -490,11 +490,11 @@ const formData =
     interest:
     selectedInterests,
 
-    consent:true
+    consent:"Accepted"
 };
 
 fetch(
-"https://script.google.com/macros/s/AKfycbw7NUW74aXCNh3lE1HErg6l0tH6LuXa1WxwldHA1gT4G5lg0MATYDWJw9sbb_GuAcJrQQ/exec",
+"https://script.google.com/macros/s/AKfycby_VtMrI7uonpzguKk3fPh6ldDU3FciNqaduer1Gbpj3vhYfHCfGXQrNeL94TTJCvSL0A/exec",
 {
     method:"POST",
 
