@@ -455,7 +455,77 @@ if(registrationForm)
             return;
         }
 
+        /* SUCCESS */
+
+const selectedInterests =
+Array.from(
+document.querySelectorAll('input[name="interest"]:checked')
+)
+.map(function(item)
+{
+    return item.value;
+})
+.join(", ");
+
+const formData =
+{
+    fullname:
+    document.getElementById("fullname").value.trim(),
+
+    nric:
+    document.getElementById("registeredNRIC").value,
+
+    phone:
+    document.getElementById("phone").value.trim(),
+
+    email:
+    document.getElementById("email").value.trim(),
+
+    outlet:
+    document.getElementById("outlet").value,
+
+    model:
+    document.getElementById("model").value,
+
+    interest:
+    selectedInterests,
+
+    consent:true
+};
+
+fetch(
+"https://script.google.com/macros/s/AKfycbw7NUW74aXCNh3lE1HErg6l0tH6LuXa1WxwldHA1gT4G5lg0MATYDWJw9sbb_GuAcJrQQ/exec",
+{
+    method:"POST",
+
+    headers:
+    {
+        "Content-Type":"application/json"
+    },
+
+    body:JSON.stringify(formData)
+})
+.then(function(response)
+{
+    return response.json();
+})
+.then(function(result)
+{
+    if(result.success)
+    {
         window.location.href = "success.html";
+    }
+    else
+    {
+        alert(result.message);
+    }
+})
+.catch(function(error)
+{
+    console.error(error);
+
+    alert("Unable to submit your registration. Please try again.");
+});
 
     });
 }
