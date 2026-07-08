@@ -263,9 +263,203 @@ function setupConsentValidation()
     });
 }
 
-firstInvalidField.scrollIntoView(
+/*==================================================
+REGISTRATION SUBMIT
+==================================================*/
+
+const registrationForm =
+document.getElementById("registrationForm");
+
+if(registrationForm)
 {
-    behavior: "smooth",
-    block: "center"
-});
+    registrationForm.addEventListener("submit", function(event)
+    {
+        event.preventDefault();
+
+        let valid = true;
+        let firstError = null;
+
+        /* FULL NAME */
+
+        const fullname =
+        document.getElementById("fullname");
+
+        const nameError =
+        document.getElementById("nameError");
+
+        if(fullname.value.trim() == "")
+        {
+            valid = false;
+
+            nameError.textContent =
+            "Please enter your full name.";
+
+            fullname.classList.add("invalid");
+
+            if(firstError == null)
+            {
+                firstError = fullname;
+            }
+        }
+
+        /* PHONE */
+
+        const phone =
+        document.getElementById("phone");
+
+        const phoneError =
+        document.getElementById("phoneError");
+
+        if(phone.value.length < 10 || phone.value.length > 11)
+        {
+            valid = false;
+
+            phoneError.textContent =
+            "Please enter a valid Malaysian mobile number.";
+
+            phone.classList.add("invalid");
+
+            if(firstError == null)
+            {
+                firstError = phone;
+            }
+        }
+
+        /* EMAIL */
+
+        const email =
+        document.getElementById("email");
+
+        const emailError =
+        document.getElementById("emailError");
+
+        if(!email.checkValidity())
+        {
+            valid = false;
+
+            emailError.textContent =
+            "Please enter a valid email address.";
+
+            email.classList.add("invalid");
+
+            if(firstError == null)
+            {
+                firstError = email;
+            }
+        }
+
+        /* OUTLET */
+
+        const outlet =
+        document.getElementById("outlet");
+
+        const outletError =
+        document.getElementById("outletError");
+
+        if(outlet.value == "")
+        {
+            valid = false;
+
+            outletError.textContent =
+            "Please select a Lexus outlet.";
+
+            if(firstError == null)
+            {
+                firstError = outlet;
+            }
+        }
+
+        /* MODEL */
+
+        const model =
+        document.getElementById("model");
+
+        const modelError =
+        document.getElementById("modelError");
+
+        if(model.value == "")
+        {
+            valid = false;
+
+            modelError.textContent =
+            "Please select a Lexus model.";
+
+            if(firstError == null)
+            {
+                firstError = model;
+            }
+        }
+
+        /* INTEREST */
+
+        const selected =
+        document.querySelectorAll(
+        'input[name="interest"]:checked');
+
+        const interestError =
+        document.getElementById("interestError");
+
+        if(selected.length == 0)
+        {
+            valid = false;
+
+            interestError.textContent =
+            "Please select at least one interest.";
+
+            if(firstError == null)
+            {
+                firstError =
+                document.querySelector(".interests");
+            }
+        }
+
+        /* CONSENT */
+
+        const consent1 =
+        document.getElementById("consent1");
+
+        const consent2 =
+        document.getElementById("consent2");
+
+        const consent3 =
+        document.getElementById("consent3");
+
+        const consentError =
+        document.getElementById("consentError");
+
+        if(!consent1.checked ||
+           !consent2.checked ||
+           !consent3.checked)
+        {
+            valid = false;
+
+            consentError.textContent =
+            "Please agree to all declarations.";
+
+            if(firstError == null)
+            {
+                firstError = consent1;
+            }
+        }
+
+        /* STOP HERE */
+
+        if(!valid)
+        {
+            firstError.scrollIntoView(
+            {
+                behavior:"smooth",
+                block:"center"
+            });
+
+            return;
+        }
+
+        /* SUCCESS */
+
+        alert("Everything is valid! 🎉");
+
+        // Later we'll send to Google Sheets here.
+    });
+}
 
