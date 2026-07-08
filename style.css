@@ -69,11 +69,10 @@ body{
 
 .container{
 
-    width:min(92%,1100px);
-
-    margin:auto;
-
     padding:70px 0 100px;
+    width:90%;
+    max-width:700px;
+    margin:auto;
 
 }
 
@@ -339,11 +338,17 @@ small{
 
 button{
 
-    width:500px;
+    display:block;
+
+    width:100%;
+
+    max-width:360px;
+
+    margin:40px auto 0;
+
+    padding:16px 24px;
 
     align-self:center;
-
-    padding:18px;
 
     margin-top:20px;
 
