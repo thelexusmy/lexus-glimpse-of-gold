@@ -455,6 +455,55 @@ if(registrationForm)
             return;
         }
 
+/* SUBMIT TO GOOGLE SHEETS */
+
+const interests =
+Array.from(selected)
+.map(function(item)
+{
+    return item.value;
+})
+.join(", ");
+
+const formData =
+new FormData();
+
+formData.append("fullname", fullname.value.trim());
+formData.append("nric", document.getElementById("registeredNRIC").value);
+formData.append("phone", phone.value.trim());
+formData.append("email", email.value.trim());
+formData.append("outlet", outlet.value);
+formData.append("model", model.value);
+formData.append("interest", interests);
+formData.append("consent", "Accepted");
+
+fetch(
+"https://script.google.com/macros/s/AKfycby_VtMrI7uonpzguKk3fPh6ldDU3FciNqaduer1Gbpj3vhYfHCfGXQrNeL94TTJCvSL0A/exec",
+{
+    method:"POST",
+    body:formData
+})
+.then(function(response)
+{
+    return response.json();
+})
+.then(function(result)
+{
+    if(result.success)
+    {
+        window.location.href = "success.html";
+    }
+    else
+    {
+        alert(result.message);
+    }
+})
+.catch(function(error)
+{
+    console.error(error);
+    alert(error.message);
+});
+
         /* SUCCESS */
 
 const selectedInterests =
