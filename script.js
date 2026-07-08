@@ -459,7 +459,3 @@ if(registrationForm)
 
     });
 }
-
-/* Links */
-document.getElementById("link1").href = "link 1"; //To Fill in Later
-document.getElementById("link2").href = "https://www.lexus.com.my/en/miscellaneous/legal-privacy.html";
