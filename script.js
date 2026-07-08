@@ -455,11 +455,8 @@ if(registrationForm)
             return;
         }
 
-        /* SUCCESS */
+        window.location.href = "success.html";
 
-        alert("Everything is valid! 🎉");
-
-        // Later we'll send to Google Sheets here.
     });
 }
 
