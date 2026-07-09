@@ -1,5 +1,7 @@
 /*LANDING PAGE*/
 const verifyForm = document.getElementById("verifyForm");
+const API_URL =
+"https://script.google.com/macros/s/AKfycby_VtMrI7uonpzguKk3fPh6ldDU3FciNqaduer1Gbpj3vhYfHCfGXQrNeL94TTJCvSL0A/exec";
 
 if(verifyForm)
 {
@@ -17,8 +19,29 @@ if(verifyForm)
         }
 
         error.textContent = "";
-        sessionStorage.setItem("nric", nric);
-        window.location.href = "register.html";
+        fetch(`${API_URL}?nric=${encodeURIComponent(nric)}`)
+        .then(function(response)
+        {
+            return response.json();
+        })
+        .then(function(result)
+        {
+            if(result.exists)
+            {
+                error.textContent =
+                "This NRIC has already been registered.";
+            }
+            else
+            {
+                sessionStorage.setItem("nric", nric);
+                window.location.href = "register.html";
+            }
+        })
+        .catch(function(error)
+        {
+            console.error(error);
+            alert("Unable to verify NRIC.");
+        });
     });
 }
 
@@ -477,14 +500,18 @@ formData.append("model", model.value);
 formData.append("interest", interests);
 formData.append("consent", "Accepted");
 
-fetch(
-"https://script.google.com/macros/s/AKfycby_VtMrI7uonpzguKk3fPh6ldDU3FciNqaduer1Gbpj3vhYfHCfGXQrNeL94TTJCvSL0A/exec",
+fetch(API_URL,
 {
     method:"POST",
     body:formData
 })
 .then(function(response)
 {
+    if(!response.ok)
+    {
+        throw new Error("Server error");
+    }
+
     return response.json();
 })
 .then(function(result)
@@ -501,80 +528,10 @@ fetch(
 .catch(function(error)
 {
     console.error(error);
-    alert(error.message);
-});
-
-        /* SUCCESS */
-
-const selectedInterests =
-Array.from(
-document.querySelectorAll('input[name="interest"]:checked')
-)
-.map(function(item)
-{
-    return item.value;
-})
-.join(", ");
-
-const formData =
-{
-    fullname:
-    document.getElementById("fullname").value.trim(),
-
-    nric:
-    document.getElementById("registeredNRIC").value,
-
-    phone:
-    document.getElementById("phone").value.trim(),
-
-    email:
-    document.getElementById("email").value.trim(),
-
-    outlet:
-    document.getElementById("outlet").value,
-
-    model:
-    document.getElementById("model").value,
-
-    interest:
-    selectedInterests,
-
-    consent:"Accepted"
-};
-
-fetch(
-"https://script.google.com/macros/s/AKfycby_VtMrI7uonpzguKk3fPh6ldDU3FciNqaduer1Gbpj3vhYfHCfGXQrNeL94TTJCvSL0A/exec",
-{
-    method:"POST",
-
-    headers:
-    {
-        "Content-Type":"application/json"
-    },
-
-    body:JSON.stringify(formData)
-})
-.then(function(response)
-{
-    return response.json();
-})
-.then(function(result)
-{
-    if(result.success)
-    {
-        window.location.href = "success.html";
-    }
-    else
-    {
-        alert(result.message);
-    }
-})
-.catch(function(error)
-{
-    console.error(error);
-
-    alert("Unable to submit your registration. Please try again.");
+    alert("Unable to submit your registration.");
 });
 
     });
 }
+
+
