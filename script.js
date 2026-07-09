@@ -1,4 +1,15 @@
-/*LANDING PAGE*/
+/*==================================================
+CONFIG
+==================================================*/
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycby_VtMrI7uonpzguKk3fPh6ldDU3FciNqaduer1Gbpj3vhYfHCfGXQrNeL94TTJCvSL0A/exec";
+
+
+/*==================================================
+LANDING PAGE - VERIFY NRIC
+==================================================*/
+
 const verifyForm = document.getElementById("verifyForm");
 
 if(verifyForm)
@@ -6,8 +17,10 @@ if(verifyForm)
     verifyForm.addEventListener("submit", function(event)
     {
         event.preventDefault();
+
         const nric = document.getElementById("nric").value.trim();
         const error = document.getElementById("error");
+        const button = verifyForm.querySelector("button");
 
         if(!/^\d{12}$/.test(nric))
         {
@@ -16,14 +29,45 @@ if(verifyForm)
             return;
         }
 
-        error.textContent = "";
-        sessionStorage.setItem("nric", nric);
-        window.location.href = "register.html";
+        error.textContent = "Checking...";
+        button.disabled = true;
+
+        fetch(API_URL + "?nric=" + encodeURIComponent(nric))
+        .then(function(response)
+        {
+            return response.json();
+        })
+        .then(function(result)
+        {
+            button.disabled = false;
+
+            if(result.exists)
+            {
+                error.textContent =
+                "This NRIC has already been registered.";
+            }
+            else
+            {
+                error.textContent = "";
+                sessionStorage.setItem("nric", nric);
+                window.location.href = "register.html";
+            }
+        })
+        .catch(function(err)
+        {
+            button.disabled = false;
+            console.error(err);
+
+            error.textContent =
+            "Something went wrong. Please try again.";
+        });
     });
 }
 
 
-/*REGISTER PAGE*/
+/*==================================================
+REGISTER PAGE
+==================================================*/
 
 if(window.location.pathname.endsWith("register.html"))
 {
@@ -48,7 +92,7 @@ function loadRegistrationPage()
 function loadNRIC()
 {
     const registeredNRIC = document.getElementById("registeredNRIC");
-    
+
     if(!registeredNRIC)
     {
         return;
@@ -61,9 +105,8 @@ function loadNRIC()
         window.location.href = "index.html";
         return;
     }
+
     registeredNRIC.value = savedNRIC;
-    console.log("Input:", registeredNRIC);
-    console.log("Value:", registeredNRIC.value);
 }
 
 
@@ -130,6 +173,7 @@ function setupPhoneValidation()
         }
     });
 }
+
 
 /*EMAIL*/
 
@@ -263,6 +307,7 @@ function setupConsentValidation()
     });
 }
 
+
 /*==================================================
 REGISTRATION SUBMIT
 ==================================================*/
@@ -363,10 +408,16 @@ if(registrationForm)
             outletError.textContent =
             "Please select a Lexus outlet.";
 
+            outlet.classList.add("invalid");
+
             if(firstError == null)
             {
                 firstError = outlet;
             }
+        }
+        else
+        {
+            outlet.classList.remove("invalid");
         }
 
         /* MODEL */
@@ -384,10 +435,16 @@ if(registrationForm)
             modelError.textContent =
             "Please select a Lexus model.";
 
+            model.classList.add("invalid");
+
             if(firstError == null)
             {
                 firstError = model;
             }
+        }
+        else
+        {
+            model.classList.remove("invalid");
         }
 
         /* INTEREST */
@@ -455,126 +512,62 @@ if(registrationForm)
             return;
         }
 
-/* SUBMIT TO GOOGLE SHEETS */
+        /* SUBMIT TO GOOGLE SHEETS */
 
-const interests =
-Array.from(selected)
-.map(function(item)
-{
-    return item.value;
-})
-.join(", ");
+        const interests =
+        Array.from(selected)
+        .map(function(item)
+        {
+            return item.value;
+        })
+        .join(", ");
 
-const formData =
-new FormData();
+        const formData = new FormData();
 
-formData.append("fullname", fullname.value.trim());
-formData.append("nric", document.getElementById("registeredNRIC").value);
-formData.append("phone", phone.value.trim());
-formData.append("email", email.value.trim());
-formData.append("outlet", outlet.value);
-formData.append("model", model.value);
-formData.append("interest", interests);
-formData.append("consent", "Accepted");
+        formData.append("fullname", fullname.value.trim());
+        formData.append("nric", document.getElementById("registeredNRIC").value);
+        formData.append("phone", phone.value.trim());
+        formData.append("email", email.value.trim());
+        formData.append("outlet", outlet.value);
+        formData.append("model", model.value);
+        formData.append("interest", interests);
+        formData.append("consent", "Accepted");
 
-fetch(
-"https://script.google.com/macros/s/AKfycby_VtMrI7uonpzguKk3fPh6ldDU3FciNqaduer1Gbpj3vhYfHCfGXQrNeL94TTJCvSL0A/exec",
-{
-    method:"POST",
-    body:formData
-})
-.then(function(response)
-{
-    return response.json();
-})
-.then(function(result)
-{
-    if(result.success)
-    {
-        window.location.href = "success.html";
-    }
-    else
-    {
-        alert(result.message);
-    }
-})
-.catch(function(error)
-{
-    console.error(error);
-    alert(error.message);
-});
+        const submitButton = registrationForm.querySelector("button");
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
 
-        /* SUCCESS */
+        fetch(API_URL,
+        {
+            method:"POST",
+            body:formData
+        })
+        .then(function(response)
+        {
+            return response.json();
+        })
+        .then(function(result)
+        {
+            if(result.success)
+            {
+                sessionStorage.removeItem("nric");
+                window.location.href = "success.html";
+            }
+            else
+            {
+                submitButton.disabled = false;
+                submitButton.textContent = "Submit Registration";
+                alert(result.message);
+            }
+        })
+        .catch(function(error)
+        {
+            console.error(error);
 
-const selectedInterests =
-Array.from(
-document.querySelectorAll('input[name="interest"]:checked')
-)
-.map(function(item)
-{
-    return item.value;
-})
-.join(", ");
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit Registration";
 
-const formData =
-{
-    fullname:
-    document.getElementById("fullname").value.trim(),
-
-    nric:
-    document.getElementById("registeredNRIC").value,
-
-    phone:
-    document.getElementById("phone").value.trim(),
-
-    email:
-    document.getElementById("email").value.trim(),
-
-    outlet:
-    document.getElementById("outlet").value,
-
-    model:
-    document.getElementById("model").value,
-
-    interest:
-    selectedInterests,
-
-    consent:"Accepted"
-};
-
-fetch(
-"https://script.google.com/macros/s/AKfycby_VtMrI7uonpzguKk3fPh6ldDU3FciNqaduer1Gbpj3vhYfHCfGXQrNeL94TTJCvSL0A/exec",
-{
-    method:"POST",
-
-    headers:
-    {
-        "Content-Type":"application/json"
-    },
-
-    body:JSON.stringify(formData)
-})
-.then(function(response)
-{
-    return response.json();
-})
-.then(function(result)
-{
-    if(result.success)
-    {
-        window.location.href = "success.html";
-    }
-    else
-    {
-        alert(result.message);
-    }
-})
-.catch(function(error)
-{
-    console.error(error);
-
-    alert("Unable to submit your registration. Please try again.");
-});
-
+            alert("Unable to submit your registration. Please try again.");
+        });
     });
 }
