@@ -603,24 +603,33 @@ button:hover{
 
 }
 
+/*========================================
+TERMS & CONDITIONS
+========================================*/
+
 .terms-content
 {
-    text-align: left;
     max-width: 900px;
-    margin: auto;
+    margin: 40px auto 0;
+    text-align: left;
     line-height: 1.8;
+    color: #2f2f2f;
 }
 
 .terms-content h2
 {
-    margin-top: 40px;
-    margin-bottom: 16px;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 50px 0 20px;
+    color: #111;
 }
 
 .terms-content h3
 {
-    margin-top: 30px;
-    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 40px 0 20px;
+    color: #111;
 }
 
 .terms-content p
@@ -630,16 +639,41 @@ button:hover{
 
 .terms-content ol
 {
-    padding-left: 22px;
-    margin-bottom: 20px;
+    padding-left: 25px;
+    margin-bottom: 25px;
 }
 
 .terms-content li
 {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .terms-content ol ol
 {
-    margin-top: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.terms-content strong
+{
+    font-weight: 600;
+}
+
+@media (max-width:768px)
+{
+    .terms-content
+    {
+        font-size:15px;
+        line-height:1.7;
+    }
+
+    .terms-content h2
+    {
+        font-size:24px;
+    }
+
+    .terms-content h3
+    {
+        font-size:20px;
+    }
 }
