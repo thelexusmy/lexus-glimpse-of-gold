@@ -603,4 +603,43 @@ button:hover{
 
 }
 
+.terms-content
+{
+    text-align: left;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.8;
+}
 
+.terms-content h2
+{
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+.terms-content h3
+{
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+.terms-content p
+{
+    margin-bottom: 18px;
+}
+
+.terms-content ol
+{
+    padding-left: 22px;
+    margin-bottom: 20px;
+}
+
+.terms-content li
+{
+    margin-bottom: 12px;
+}
+
+.terms-content ol ol
+{
+    margin-top: 10px;
+}
